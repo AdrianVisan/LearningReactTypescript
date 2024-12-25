@@ -3,10 +3,11 @@ import Spinner from './Spinner';
 import JobListing from './JobListing';
 import Job from '../api/Job';
 
-function JobListings(input: { showFull: boolean } = { showFull: true }) {
+type JobListingsParams = { showFull?: boolean };
+
+function JobListings({ showFull = true }: JobListingsParams) {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { showFull } = input;
 
   useEffect(() => {
     const fetchJobs = async () => {
