@@ -1,6 +1,6 @@
 type Company = {
   name: string;
-  descrition: string;
+  description: string;
   contactEmail: string;
   contactPhone: string;
 };

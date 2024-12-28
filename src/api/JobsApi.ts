@@ -29,11 +29,11 @@ const updateJob = async (updatedJob: Job) => {
   return;
 };
 
+// Load Job
+
 interface LoaderParams {
   id: number;
 }
-
-// Load Job
 const loadJob = async ({ params }: { params: LoaderParams }): Promise<Job> => {
   const rest = await fetch(`/api/jobs/${params.id}`);
   const data = await rest.json();

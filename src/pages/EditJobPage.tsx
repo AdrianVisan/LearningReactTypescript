@@ -1,48 +1,53 @@
-import { toast } from 'react-toastify';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import Job from '../api/types/Job';
 import { FormEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import JobType from '../api/types/JobType';
-import JobSubmission from '../api/types/JobSubmission';
 
-type AddJobParams = { addJobSubmit: (job: JobSubmission) => void };
+type EditJobParams = { updateJobSubmit: (job: Job) => void };
 
-function AddJob(params: AddJobParams) {
-  const { addJobSubmit } = params;
+function EditJobPage(params: EditJobParams) {
+  const { updateJobSubmit } = params;
+  const { id } = useParams();
+  const job = useLoaderData();
 
-  const [title, setTitle] = useState('');
-  const [type, setType] = useState(JobType.FullTime);
-  const [description, setDescription] = useState('');
-  const [salary, setSalary] = useState('Under $50K');
-  const [location, setLocation] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [companyDescription, setCompanyDescription] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
+  const [title, setTitle] = useState(job.title);
+  const [type, setType] = useState(job.type);
+  const [location, setLocation] = useState(job.location);
+  const [description, setDescription] = useState(job.description);
+  const [salary, setSalary] = useState(job.salary);
+  const [companyName, setCompanyName] = useState(job.company.name);
+  const [companyDescription, setCompanyDescription] = useState(
+    job.company.description
+  );
+  const [contactEmail, setContactEmail] = useState(job.company.contactEmail);
+  const [contactPhone, setContactPhone] = useState(job.company.contactPhone);
 
   const navigate = useNavigate();
 
   const submitForm = (e: FormEvent) => {
     e.preventDefault();
 
-    const newJob: JobSubmission = {
+    const updatedJob: Job = {
+      id,
       title,
       type,
-      description,
       location,
+      description,
       salary,
       company: {
+        name: companyName,
+        description: companyDescription,
         contactEmail,
         contactPhone,
-        name: companyName,
-        descrition: companyDescription,
       },
     };
 
-    addJobSubmit(newJob);
+    updateJobSubmit(updatedJob);
 
-    toast.success('Job Added');
+    toast.success('Job Updated');
 
-    return navigate('/jobs');
+    return navigate(`/jobs/${id}`);
   };
 
   return (
@@ -232,4 +237,4 @@ function AddJob(params: AddJobParams) {
   );
 }
 
-export default AddJob;
+export default EditJobPage;
