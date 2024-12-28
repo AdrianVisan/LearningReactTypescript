@@ -2,7 +2,10 @@ import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-function JobPage({ deleteJob }) {
+type JobPageParams = { deleteJob: (job: number) => void };
+
+function JobPage(params: JobPageParams) {
+  const { deleteJob } = params;
   const job = useLoaderData();
   const navigate = useNavigate();
 
