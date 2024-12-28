@@ -1,7 +1,8 @@
-import Job from './Job';
+import Job from './types/Job';
+import JobSubmission from './types/JobSubmission';
 
 // Add New Job
-const addJob = async (newJob: Job) => {
+const addJob = async (newJob: JobSubmission) => {
   await fetch('/api/jobs', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

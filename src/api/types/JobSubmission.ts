@@ -1,8 +1,7 @@
 import Company from './Company';
 import JobType from './JobType';
 
-type Job = {
-  id: number;
+type JobSubmission = {
   title: string;
   type: JobType;
   description: string;
@@ -11,4 +10,4 @@ type Job = {
   company: Company;
 };
 
-export default Job;
+export default JobSubmission;

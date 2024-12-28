@@ -94,7 +94,7 @@
       "company": {
         "name": "Microsoft",
         "description": "Low level Hypervisor",
-        "contactEmail": "brad@microsoft.com",
+        "contactEmail": "bp@microsoft.com",
         "contactPhone": "111 222 3333"
       }
     }

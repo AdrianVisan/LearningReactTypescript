@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Spinner from './Spinner';
 import JobListing from './JobListing';
-import Job from '../api/Job';
+import Job from '../api/types/Job';
 
 type JobListingsParams = { showFull?: boolean };
 

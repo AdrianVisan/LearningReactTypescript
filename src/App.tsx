@@ -9,7 +9,8 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import JobsPage from './pages/JobsPage';
 import JobPage from './pages/JobPage';
-import { deleteJob, loadJob } from './api/JobsApi';
+import { addJob, deleteJob, loadJob } from './api/JobsApi';
+import AddJob from './pages/AddJob';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -23,6 +24,7 @@ const App = () => {
           element={<JobPage deleteJob={deleteJob} />}
           loader={loadJob}
         />
+        <Route path="/add-job" element={<AddJob addJobSubmit={addJob} />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Route>
