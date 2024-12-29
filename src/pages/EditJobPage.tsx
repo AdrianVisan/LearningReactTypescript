@@ -28,6 +28,11 @@ function EditJobPage(params: EditJobParams) {
   const submitForm = (e: FormEvent) => {
     e.preventDefault();
 
+    const jobNotFound = id === undefined || job === undefined || job === null;
+    if (jobNotFound) {
+      return navigate(`/not-found`);
+    }
+
     const updatedJob: Job = {
       id,
       title,
@@ -56,7 +61,6 @@ function EditJobPage(params: EditJobParams) {
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
           <form onSubmit={submitForm}>
             <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>
-
             <div className="mb-4">
               <label
                 htmlFor="type"
@@ -108,7 +112,6 @@ function EditJobPage(params: EditJobParams) {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}></textarea>
             </div>
-
             <div className="mb-4">
               <label
                 htmlFor="type"
@@ -135,7 +138,6 @@ function EditJobPage(params: EditJobParams) {
                 <option value="Over $200K">Over $200K</option>
               </select>
             </div>
-
             <div className="mb-4">
               <label className="block text-gray-700 font-bold mb-2">
                 Location
@@ -151,9 +153,7 @@ function EditJobPage(params: EditJobParams) {
                 onChange={(e) => setLocation(e.target.value)}
               />
             </div>
-
             <h3 className="text-2xl mb-5">Company Info</h3>
-
             <div className="mb-4">
               <label
                 htmlFor="company"
@@ -170,7 +170,6 @@ function EditJobPage(params: EditJobParams) {
                 onChange={(e) => setCompanyName(e.target.value)}
               />
             </div>
-
             <div className="mb-4">
               <label
                 htmlFor="company_description"
@@ -188,7 +187,6 @@ function EditJobPage(params: EditJobParams) {
                   setCompanyDescription(e.target.value)
                 }></textarea>
             </div>
-
             <div className="mb-4">
               <label
                 htmlFor="contact_email"
@@ -222,7 +220,6 @@ function EditJobPage(params: EditJobParams) {
                 onChange={(e) => setContactPhone(e.target.value)}
               />
             </div>
-
             <div>
               <button
                 className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"

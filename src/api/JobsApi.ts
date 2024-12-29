@@ -1,3 +1,4 @@
+import { LoaderFunctionArgs } from 'react-router-dom';
 import Job from './types/Job';
 import JobSubmission from './types/JobSubmission';
 
@@ -31,11 +32,13 @@ const updateJob = async (updatedJob: Job) => {
 
 // Load Job
 
-interface LoaderParams {
-  id: number;
-}
-const loadJob = async ({ params }: { params: LoaderParams }): Promise<Job> => {
-  const rest = await fetch(`/api/jobs/${params.id}`);
+const loadJob = async (args: LoaderFunctionArgs): Promise<Job | null> => {
+  const id = args.params.id;
+  if (id == null) {
+    return null;
+  }
+
+  const rest = await fetch(`/api/jobs/${id}`);
   const data = await rest.json();
   return data;
 };
