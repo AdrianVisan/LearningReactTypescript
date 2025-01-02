@@ -3,7 +3,7 @@ import { WarningAmberRounded } from '@mui/icons-material';
 
 function NotFoundPage() {
   return (
-    <Box component="section" sx={{ justifyItems: 'center' }}>
+    <Box sx={{ justifyItems: 'center' }}>
       <WarningAmberRounded color="warning" sx={{ fontSize: 200 }} />
       <Typography variant="h2" sx={{ fontWeight: 'bold' }}>
         404 Not Found
