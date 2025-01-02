@@ -1,18 +1,18 @@
-import { Link } from 'react-router-dom';
-import { FaExclamationTriangle } from 'react-icons/fa';
+import { Box, Button, Typography } from '@mui/material';
+import { WarningAmberRounded } from '@mui/icons-material';
 
 function NotFoundPage() {
   return (
-    <section className="text-center flex flex-col justify-center items-center h-96">
-      <FaExclamationTriangle className="text-yellow-400 text-6xl mb-4" />
-      <h1 className="text-6xl font-bold mb-4">404 Not Found</h1>
-      <p className="text-xl mb-5">This page does not exist</p>
-      <Link
-        to="/"
-        className="text-white bg-indigo-700 hover:bg-indigo-900 rounded-md px-3 py-2 mt-4">
+    <Box component="section" sx={{ justifyItems: 'center' }}>
+      <WarningAmberRounded color="warning" sx={{ fontSize: 200 }} />
+      <Typography variant="h2" sx={{ fontWeight: 'bold' }}>
+        404 Not Found
+      </Typography>
+      <Typography variant="h6">This page does not exist</Typography>
+      <Button href="/" variant="contained">
         Go Back
-      </Link>
-    </section>
+      </Button>
+    </Box>
   );
 }
 
