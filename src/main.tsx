@@ -4,7 +4,7 @@ import './index.css';
 import App from './App.tsx';
 import { createTheme, ThemeProvider } from '@mui/material';
 
-const theme = createTheme({
+const defaultTheme = createTheme({
   components: {
     MuiButton: {
       defaultProps: {
@@ -16,7 +16,7 @@ const theme = createTheme({
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <App />
     </ThemeProvider>
   </StrictMode>
