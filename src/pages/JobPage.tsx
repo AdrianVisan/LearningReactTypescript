@@ -1,15 +1,16 @@
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Job from '../api/types/Job';
 
-type JobPageParams = { deleteJob: (job: number) => void };
+type JobPageParams = { deleteJob: (job: string) => void };
 
 function JobPage(params: JobPageParams) {
   const { deleteJob } = params;
-  const job = useLoaderData();
+  const job = useLoaderData<Job>();
   const navigate = useNavigate();
 
-  const onDeleteClick = (jobId: number) => {
+  const onDeleteClick = (jobId: string) => {
     const confirm = window.confirm('Are you sure?');
 
     if (!confirm) return;

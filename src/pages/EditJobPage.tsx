@@ -9,7 +9,7 @@ type EditJobParams = { updateJobSubmit: (job: Job) => void };
 function EditJobPage(params: EditJobParams) {
   const { updateJobSubmit } = params;
   const { id } = useParams();
-  const job = useLoaderData();
+  const job = useLoaderData<Job>();
 
   const [title, setTitle] = useState(job.title);
   const [type, setType] = useState(job.type);

@@ -13,7 +13,7 @@ const addJob = async (newJob: JobSubmission) => {
 };
 
 // Delete Job
-const deleteJob = async (id: number) => {
+const deleteJob = async (id: string) => {
   await fetch(`/api/jobs/${id}`, {
     method: 'DELETE',
   });
