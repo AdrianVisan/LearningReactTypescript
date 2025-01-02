@@ -17,7 +17,7 @@ function HomeCards() {
               Browse Jobs
             </Link>
           </Card>
-          <Card background="bg-indigo-100">
+          <Card highlighted={true}>
             <h2 className="text-2xl font-bold">For Employers</h2>
             <p className="mt-2 mb-4">
               List your job to find the perfect developer for the role

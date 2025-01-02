@@ -1,11 +1,15 @@
 import { ReactNode } from 'react';
 
-type CardProps = { children: ReactNode[]; background?: string };
+type CardProps = { children: ReactNode[]; highlighted?: boolean };
 
-function Card(input: CardProps) {
-  const { background, children } = input;
+function Card({ children, highlighted = false }: CardProps) {
   return (
-    <div className={`${background} p-6 rounded-lg shadow-md`}>{children}</div>
+    <div
+      className={`${
+        highlighted ? 'bg-indigo-100' : ''
+      } p-6 rounded-lg shadow-md`}>
+      {children}
+    </div>
   );
 }
 export default Card;
