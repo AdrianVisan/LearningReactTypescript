@@ -1,36 +1,41 @@
-import { Link } from 'react-router-dom';
 import Card from './Card';
+import Box from '@mui/material/Box';
+import Grid2 from '@mui/material/Grid2';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 function HomeCards() {
   return (
-    <section className="py-4">
-      <div className="container-xl lg:container m-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
+    <Box padding={2} maxWidth="xl" margin="auto">
+      <Grid2 container spacing={2}>
+        <Grid2 size="grow">
           <Card>
-            <h2 className="text-2xl font-bold">For Developers</h2>
-            <p className="mt-2 mb-4">
+            <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+              For Developers
+            </Typography>
+            <Typography marginTop={1} marginBottom={2}>
               Browse our React jobs and start your career today
-            </p>
-            <Link
-              to="/jobs"
-              className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700">
+            </Typography>
+            <Button href="/jobs" variant="contained">
               Browse Jobs
-            </Link>
+            </Button>
           </Card>
+        </Grid2>
+        <Grid2 size="grow">
           <Card highlighted={true}>
-            <h2 className="text-2xl font-bold">For Employers</h2>
-            <p className="mt-2 mb-4">
+            <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+              For Employers
+            </Typography>
+            <Typography marginTop={1} marginBottom={2}>
               List your job to find the perfect developer for the role
-            </p>
-            <Link
-              to="/add-job"
-              className="inline-block bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-600">
+            </Typography>
+            <Button href="/jobs" variant="contained">
               Add Job
-            </Link>
+            </Button>
           </Card>
-        </div>
-      </div>
-    </section>
+        </Grid2>
+      </Grid2>
+    </Box>
   );
 }
 
