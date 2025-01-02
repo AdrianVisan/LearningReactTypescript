@@ -9,15 +9,15 @@ type AddJobParams = { addJobSubmit: (job: JobSubmission) => void };
 function AddJobPage(params: AddJobParams) {
   const { addJobSubmit } = params;
 
-  const [title, setTitle] = useState('');
-  const [type, setType] = useState(JobType.FullTime);
-  const [description, setDescription] = useState('');
-  const [salary, setSalary] = useState('Under $50K');
-  const [location, setLocation] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [companyDescription, setCompanyDescription] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
+  const [title, setTitle] = useState<string>('');
+  const [type, setType] = useState<JobType>(JobType.FullTime);
+  const [description, setDescription] = useState<string>('');
+  const [salary, setSalary] = useState<string>('Under $50K');
+  const [location, setLocation] = useState<string>('');
+  const [companyName, setCompanyName] = useState<string>('');
+  const [companyDescription, setCompanyDescription] = useState<string>('');
+  const [contactEmail, setContactEmail] = useState<string>('');
+  const [contactPhone, setContactPhone] = useState<string>('');
 
   const navigate = useNavigate();
 

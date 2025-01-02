@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import Job from '../api/types/Job';
 
 function JobListing(input: { job: Job }) {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const [showFullDescription, setShowFullDescription] =
+    useState<boolean>(false);
   const { job } = input;
   let description = job.description;
   if (!showFullDescription) {

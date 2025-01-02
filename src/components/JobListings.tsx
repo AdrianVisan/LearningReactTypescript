@@ -6,8 +6,8 @@ import Job from '../api/types/Job';
 type JobListingsParams = { showFull?: boolean };
 
 function JobListings({ showFull = true }: JobListingsParams) {
-  const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchJobs = async () => {
