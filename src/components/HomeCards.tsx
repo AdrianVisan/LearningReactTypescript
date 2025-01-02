@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 function HomeCards() {
   return (
-    <Box padding={2} maxWidth="xl" margin="auto">
+    <Box paddingTop={2} paddingBottom={2} maxWidth="xl" margin="auto">
       <Grid2 container spacing={2}>
         <Grid2 size="grow">
           <Card>
