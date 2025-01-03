@@ -5,6 +5,13 @@ import App from './App.tsx';
 import { createTheme, ThemeProvider } from '@mui/material';
 
 const defaultTheme = createTheme({
+  palette: {
+    secondary: {
+      light: '#939ed5',
+      main: '#7986cb',
+      dark: '#545d8e',
+    },
+  },
   components: {
     MuiButton: {
       defaultProps: {

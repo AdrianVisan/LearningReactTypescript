@@ -12,7 +12,7 @@ function Hero({
       paddingTop={8}
       paddingBottom={8}
       marginBottom={4}
-      sx={{ backgroundColor: 'primary.main' }}>
+      sx={{ backgroundColor: 'primary.light' }}>
       <Box
         maxWidth="xl"
         margin="auto"
