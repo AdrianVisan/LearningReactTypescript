@@ -33,7 +33,7 @@ function JobListings({ showFull = true }: JobListingsParams) {
           {showFull ? 'Browse Jobs' : 'Recent Jobs'}
         </h2>
         {loading ? (
-          <Spinner loading={loading} />
+          <Spinner />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {jobs.map((job: Job) => (

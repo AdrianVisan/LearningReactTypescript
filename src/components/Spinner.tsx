@@ -1,16 +1,11 @@
-import ClipLoader from 'react-spinners/ClipLoader';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
-const override = { display: 'block', margin: '100px auto' };
-
-function Spinner(input: { loading: boolean }) {
-  const { loading } = input;
+function Spinner() {
   return (
-    <ClipLoader
-      color="#4338ca"
-      loading={loading}
-      cssOverride={override}
-      size={150}
-    />
+    <Box sx={{ justifyContent: 'center' }} display="flex" padding="3rem">
+      <CircularProgress size="15rem" />
+    </Box>
   );
 }
 
