@@ -16,7 +16,8 @@ function Hero({
       <Box
         maxWidth="xl"
         margin="auto"
-        sx={{ justifyItems: 'center', color: 'primary.contrastText' }}>
+        color="primary.contrastText"
+        justifyItems="center">
         <Typography variant="h1" sx={{ fontWeight: 'bold' }}>
           {title}
         </Typography>

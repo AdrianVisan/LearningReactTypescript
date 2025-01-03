@@ -1,14 +1,28 @@
-import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 function ViewAllJobs() {
   return (
-    <section className="m-auto max-w-lg my-10 px-6">
-      <Link
-        to="/jobs"
-        className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700">
-        View All Jobs
-      </Link>
-    </section>
+    <Box paddingTop={4} display="flex">
+      <Box
+        maxWidth="xl"
+        margin="auto"
+        color="primary.contrastText"
+        justifyItems="center">
+        <Button
+          href="/jobs"
+          variant="contained"
+          color="secondary"
+          sx={{
+            padding: 2,
+            paddingLeft: '10rem',
+            paddingRight: '10rem',
+            borderRadius: 2,
+          }}>
+          View All Jobs
+        </Button>
+      </Box>
+    </Box>
   );
 }
 
