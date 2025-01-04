@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
 import Icon from '@mui/material/Icon';
 import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 function NavBar() {
   return (
