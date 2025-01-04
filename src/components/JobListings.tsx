@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import Spinner from './Spinner';
 import JobListing from './JobListing';
 import Job from '../api/types/Job';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid2';
 
 type JobListingsParams = { showFull?: boolean };
 
@@ -27,22 +30,22 @@ function JobListings({ showFull = true }: JobListingsParams) {
   }, [showFull]);
 
   return (
-    <section className="bg-blue-50 px-4 py-10">
-      <div className="container-xl lg:container m-auto">
-        <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
-          {showFull ? 'Browse Jobs' : 'Recent Jobs'}
-        </h2>
-        {loading ? (
-          <Spinner />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {jobs.map((job: Job) => (
+    <Box justifyItems="center">
+      <Typography variant="h4" color="primary" fontWeight="bold">
+        {showFull ? 'Browse Jobs' : 'Recent Jobs'}
+      </Typography>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Grid container maxWidth="xl" spacing={3}>
+          {jobs.map((job: Job) => (
+            <Grid size={{ xs: 12, sm: 6, md: 4 }}>
               <JobListing key={job.id} job={job} />
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+            </Grid>
+          ))}
+        </Grid>
+      )}
+    </Box>
   );
 }
 
