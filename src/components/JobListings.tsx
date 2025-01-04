@@ -30,8 +30,8 @@ function JobListings({ showFull = true }: JobListingsParams) {
   }, [showFull]);
 
   return (
-    <Box justifyItems="center">
-      <Typography variant="h4" color="primary" fontWeight="bold">
+    <Box justifyItems="center" padding={2}>
+      <Typography variant="h4" color="primary" fontWeight="bold" margin={2}>
         {showFull ? 'Browse Jobs' : 'Recent Jobs'}
       </Typography>
       {loading ? (
