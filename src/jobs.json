@@ -88,7 +88,7 @@
       "id": "8238",
       "title": "RemoteFX Intern",
       "type": "Internship",
-      "location": "Mountain View, California",
+      "location": "Mountain View, CA",
       "description": "Work on HyperV Graphics Driver during your summer",
       "salary": "$60K - 70K",
       "company": {
@@ -96,6 +96,20 @@
         "description": "Low level Hypervisor",
         "contactEmail": "bp@microsoft.com",
         "contactPhone": "111 222 3333"
+      }
+    },
+    {
+      "id": "25df",
+      "title": "Test Job",
+      "type": "Full-Time",
+      "description": "Job job job job",
+      "location": "Universe 7",
+      "salary": "$90K - 100K",
+      "company": {
+        "contactEmail": "dude@awesome.inc",
+        "contactPhone": "44556677",
+        "name": "Awesome Inc",
+        "description": "The Most Awesome Company Ever"
       }
     }
   ]

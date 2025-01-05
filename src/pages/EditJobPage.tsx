@@ -1,8 +1,8 @@
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Job from '../api/types/Job';
 import { FormEvent, useState } from 'react';
-import { toast } from 'react-toastify';
 import JobType from '../api/types/JobType';
+import { useShowNotification } from '../hooks/useShowNotification';
 
 type EditJobParams = { updateJobSubmit: (job: Job) => void };
 
@@ -26,6 +26,8 @@ function EditJobPage(params: EditJobParams) {
   const [contactPhone, setContactPhone] = useState<string>(
     job.company.contactPhone
   );
+
+  const showNotification = useShowNotification();
 
   const navigate = useNavigate();
 
@@ -54,9 +56,8 @@ function EditJobPage(params: EditJobParams) {
 
     updateJobSubmit(updatedJob);
 
-    toast.success('Job Updated');
-
-    return navigate(`/jobs/${id}`);
+    navigate(`/jobs/${id}`);
+    showNotification.info('Job Updated');
   };
 
   return (

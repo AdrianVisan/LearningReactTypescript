@@ -1,8 +1,8 @@
-import { toast } from 'react-toastify';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import JobType from '../api/types/JobType';
 import JobSubmission from '../api/types/JobSubmission';
+import { useShowNotification } from '../hooks/useShowNotification';
 
 type AddJobParams = { addJobSubmit: (job: JobSubmission) => void };
 
@@ -18,6 +18,8 @@ function AddJobPage(params: AddJobParams) {
   const [companyDescription, setCompanyDescription] = useState<string>('');
   const [contactEmail, setContactEmail] = useState<string>('');
   const [contactPhone, setContactPhone] = useState<string>('');
+
+  const showNotification = useShowNotification();
 
   const navigate = useNavigate();
 
@@ -40,9 +42,8 @@ function AddJobPage(params: AddJobParams) {
 
     addJobSubmit(newJob);
 
-    toast.success('Job Added');
-
-    return navigate('/jobs');
+    navigate('/jobs');
+    showNotification.success('Job Added');
   };
 
   return (

@@ -1,7 +1,7 @@
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Job from '../api/types/Job';
+import { useShowNotification } from '../hooks/useShowNotification';
 
 type JobPageParams = { deleteJob: (job: string) => void };
 
@@ -9,6 +9,7 @@ function JobPage(params: JobPageParams) {
   const { deleteJob } = params;
   const job = useLoaderData<Job>();
   const navigate = useNavigate();
+  const showNotification = useShowNotification();
 
   const onDeleteClick = (jobId: string) => {
     const confirm = window.confirm('Are you sure?');
@@ -17,9 +18,8 @@ function JobPage(params: JobPageParams) {
 
     deleteJob(jobId);
 
-    toast.success('Job Deleted');
-
     navigate('/jobs');
+    showNotification.warn('Job Deleted');
   };
 
   return (
