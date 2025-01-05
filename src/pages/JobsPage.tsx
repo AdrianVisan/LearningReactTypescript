@@ -1,11 +1,11 @@
+import Box from '@mui/material/Box';
 import JobListings from '../components/JobListings';
 
 function JobsPage() {
   return (
-    <section className="bg-blue-50 px4 py6">
-      {' '}
-      <JobListings />{' '}
-    </section>
+    <Box sx={{ backgroundColor: 'secondary.light' }}>
+      <JobListings />
+    </Box>
   );
 }
 
