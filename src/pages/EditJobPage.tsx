@@ -56,8 +56,9 @@ function EditJobPage(params: EditJobParams) {
 
     updateJobSubmit(updatedJob);
 
-    navigate(`/jobs/${id}`);
     showNotification.info('Job Updated');
+
+    navigate(`/jobs/${id}`);
   };
 
   return (

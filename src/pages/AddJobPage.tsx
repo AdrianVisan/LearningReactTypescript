@@ -42,8 +42,9 @@ function AddJobPage(params: AddJobParams) {
 
     addJobSubmit(newJob);
 
-    navigate('/jobs');
     showNotification.success('Job Added');
+
+    navigate('/jobs');
   };
 
   return (

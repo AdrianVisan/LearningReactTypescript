@@ -51,7 +51,6 @@ function ShowNotificationProvider({ children }: { children?: ReactNode }) {
 
   return (
     <ShowNotificationContext.Provider value={contextValue}>
-      {children}
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={open}
@@ -67,6 +66,7 @@ function ShowNotificationProvider({ children }: { children?: ReactNode }) {
           {notificationSettings.message}
         </Alert>
       </Snackbar>
+      {children}
     </ShowNotificationContext.Provider>
   );
 }

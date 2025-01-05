@@ -18,8 +18,9 @@ function JobPage(params: JobPageParams) {
 
     deleteJob(jobId);
 
-    navigate('/jobs');
     showNotification.warn('Job Deleted');
+
+    navigate('/jobs');
   };
 
   return (
