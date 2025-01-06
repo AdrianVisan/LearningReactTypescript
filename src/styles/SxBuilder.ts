@@ -31,7 +31,7 @@ class SxBuilder {
     return this.sxProps;
   }
 
-  public static newBuilder(): SxBuilder {
+  public static start(): SxBuilder {
     return new SxBuilder();
   }
 }

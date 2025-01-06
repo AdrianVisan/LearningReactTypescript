@@ -4,5 +4,5 @@ import SxBuilder from './SxBuilder';
 export function getFontSizeStyle(
   fontSize: CSS.Property.FontSize<string | number>
 ) {
-  return SxBuilder.newBuilder().setFontSize(fontSize).build();
+  return SxBuilder.start().setFontSize(fontSize).build();
 }

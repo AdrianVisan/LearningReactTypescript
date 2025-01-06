@@ -1,7 +1,5 @@
 import SxBuilder from './SxBuilder';
 
-export const justifyItems = SxBuilder.newBuilder()
-  .setJustifyItems('center')
-  .build();
+export const justifyItems = SxBuilder.start().setJustifyItems('center').build();
 
-export const boldText = SxBuilder.newBuilder().setFontWeight('bold').build();
+export const boldText = SxBuilder.start().setFontWeight('bold').build();
