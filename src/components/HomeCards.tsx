@@ -1,14 +1,14 @@
 import Card from './Card';
 import Box from '@mui/material/Box';
-import Grid2 from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid2';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 function HomeCards() {
   return (
     <Box paddingTop={2} paddingBottom={2} maxWidth="xl" margin="auto">
-      <Grid2 container spacing={2}>
-        <Grid2 size="grow">
+      <Grid container spacing={2}>
+        <Grid size="grow">
           <Card>
             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
               For Developers
@@ -20,8 +20,8 @@ function HomeCards() {
               Browse Jobs
             </Button>
           </Card>
-        </Grid2>
-        <Grid2 size="grow">
+        </Grid>
+        <Grid size="grow">
           <Card highlighted={true}>
             <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
               For Employers
@@ -33,8 +33,8 @@ function HomeCards() {
               Add Job
             </Button>
           </Card>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Box>
   );
 }

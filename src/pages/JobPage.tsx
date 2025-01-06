@@ -1,7 +1,12 @@
-import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Job from '../api/types/Job';
 import { useShowNotification } from '../hooks/useShowNotification';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import { ArrowBackSharp, LocationOnSharp } from '@mui/icons-material';
+import Grid from '@mui/material/Grid2';
+import Typography from '@mui/material/Typography';
+import { Divider } from '@mui/material';
 
 type JobPageParams = { deleteJob: (job: string) => void };
 
@@ -25,84 +30,135 @@ function JobPage(params: JobPageParams) {
 
   return (
     <>
-      <section>
-        <div className="container m-auto py-6 px-6">
-          <Link
-            to="/jobs"
-            className="text-indigo-500 hover:text-indigo-600 flex items-center">
-            <FaArrowLeft className="mr-2" /> Back to Job Listings
-          </Link>
-        </div>
-      </section>
+      <Box margin={'auto'} maxWidth={'xl'} padding={2}>
+        <Button variant="text" href="/jobs">
+          <ArrowBackSharp sx={{ marginRight: 1 }} /> Back to Job Listings
+        </Button>
+      </Box>
 
-      <section className="bg-indigo-50">
-        <div className="container m-auto py-10 px-6">
-          <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
-            <main>
-              <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
-                <div className="text-gray-500 mb-4">{job.type}</div>
-                <h1 className="text-3xl font-bold mb-4">{job.title}</h1>
-                <div className="text-gray-500 mb-4 flex align-middle justify-center md:justify-start">
-                  <FaMapMarker className="text-orange-700 mr-1" />
-                  <p className="text-orange-700">{job.location}</p>
-                </div>
-              </div>
+      <Box bgcolor="secondary.light">
+        <Box margin="auto" maxWidth={'xl'} padding={4}>
+          <Grid container spacing={3}>
+            <Grid size={8}>
+              <Box
+                textAlign={{ xs: 'center', md: 'left' }}
+                bgcolor={'common.white'}
+                padding={3}
+                borderRadius={2}>
+                <Typography marginBottom={1} color="gray">
+                  {job.type}
+                </Typography>
+                <Typography variant="h4" fontWeight={'bold'} marginBottom={2}>
+                  {job.title}
+                </Typography>
+                <Box display="flex" alignItems="center">
+                  <LocationOnSharp color="warning" />
+                  <Typography color="warning">{job.location}</Typography>
+                </Box>
+              </Box>
 
-              <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                <h3 className="text-indigo-800 text-lg font-bold mb-6">
+              <Box
+                textAlign={{ xs: 'center', md: 'left' }}
+                bgcolor="common.white"
+                padding={3}
+                borderRadius={2}
+                marginTop={3}>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  marginBottom={3}
+                  color="primary">
                   Job Description
-                </h3>
+                </Typography>
 
-                <p className="mb-4">{job.description}</p>
+                <Typography marginBottom={2}>{job.description}</Typography>
 
-                <h3 className="text-indigo-800 text-lg font-bold mb-2">
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  marginBottom={3}
+                  color="primary">
                   Salary
-                </h3>
+                </Typography>
 
-                <p className="mb-4">{job.salary} / Year</p>
-              </div>
-            </main>
+                <Typography marginBottom={2}>{job.salary} / Year</Typography>
+              </Box>
+            </Grid>
 
-            <aside>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-6">Company Info</h3>
+            <Grid size={4}>
+              <Box bgcolor="common.white" padding={3} borderRadius={2}>
+                <Typography variant="h6" fontWeight={'bold'} marginBottom={2}>
+                  Company Info
+                </Typography>
 
-                <h2 className="text-2xl">{job.company.name}</h2>
+                <Typography variant="h5" marginBottom={2}>
+                  {job.company.name}
+                </Typography>
 
-                <p className="my-2">{job.company.description}</p>
+                <Typography marginY={2}>{job.company.description}</Typography>
 
-                <hr className="my-4" />
+                <Divider sx={{ marginY: 2 }} />
 
-                <h3 className="text-xl">Contact Email:</h3>
+                <Typography variant="h6">Contact Email:</Typography>
 
-                <p className="my-2 bg-indigo-100 p-2 font-bold">
+                <Box
+                  fontWeight="bold"
+                  padding={1}
+                  marginY={1}
+                  borderRadius={2}
+                  bgcolor="secondary.light">
                   {job.company.contactEmail}
-                </p>
+                </Box>
 
-                <h3 className="text-xl">Contact Phone:</h3>
+                <Typography variant="h6">Contact Phone:</Typography>
 
-                <p className="my-2 bg-indigo-100 p-2 font-bold">
+                <Box
+                  fontWeight="bold"
+                  padding={1}
+                  marginY={1}
+                  borderRadius={2}
+                  bgcolor="secondary.light">
                   {job.company.contactPhone}
-                </p>
-              </div>
+                </Box>
+              </Box>
 
-              <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                <h3 className="text-xl font-bold mb-6">Manage Job</h3>
-                <Link
-                  to={`/jobs/edit/${job.id}`}
-                  className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+              <Box
+                bgcolor="common.white"
+                padding={3}
+                borderRadius={2}
+                marginTop={3}>
+                <Typography variant="h6" fontWeight={'bold'} marginBottom={2}>
+                  Manage Job
+                </Typography>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  href={`/jobs/edit/${job.id}`}
+                  sx={{ borderRadius: 2, fontWeight: 'bold', padding: 1 }}>
                   Edit Job
-                </Link>
-                <button
-                  onClick={() => onDeleteClick(job.id)}
-                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                </Button>
+
+                <Button
+                  variant="contained"
+                  fullWidth
+                  color="error"
+                  sx={{
+                    borderRadius: 2,
+                    fontWeight: 'bold',
+                    marginTop: 2,
+                    padding: 1,
+                  }}
+                  onClick={() => {
+                    onDeleteClick(job.id);
+                  }}>
                   Delete Job
-                </button>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
     </>
   );
 }
