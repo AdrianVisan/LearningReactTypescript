@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 import { ThemeProvider } from '@mui/material';
-import { defaultTheme } from './styles/ThemeProvider.ts';
+import { defaultTheme } from './styles/Themes.ts';
 import ShowNotificationProvider from './hooks/ShowNotificationProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
