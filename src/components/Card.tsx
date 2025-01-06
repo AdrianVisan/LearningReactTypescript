@@ -7,7 +7,7 @@ function Card({ children, highlighted = false }: CardProps) {
   return (
     <Box
       sx={{
-        backgroundColor: `${highlighted ? 'primary.light' : ''}`,
+        backgroundColor: `${highlighted ? 'secondary.light' : ''}`,
         boxShadow: 2,
         padding: 2,
         borderRadius: 2,

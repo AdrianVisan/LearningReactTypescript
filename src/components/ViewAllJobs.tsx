@@ -12,7 +12,6 @@ function ViewAllJobs() {
         <Button
           href="/jobs"
           variant="contained"
-          color="secondary"
           sx={{
             padding: 2,
             paddingLeft: '10rem',
