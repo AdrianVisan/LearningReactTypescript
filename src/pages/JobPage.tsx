@@ -30,14 +30,14 @@ function JobPage(params: JobPageParams) {
 
   return (
     <>
-      <Box margin={'auto'} maxWidth={'xl'} padding={2}>
+      <Box margin={'auto'} maxWidth={'xl'} paddingY={2}>
         <Button variant="text" href="/jobs">
           <ArrowBackSharp sx={{ marginRight: 1 }} /> Back to Job Listings
         </Button>
       </Box>
 
       <Box bgcolor="secondary.light">
-        <Box margin="auto" maxWidth={'xl'} padding={4}>
+        <Box margin="auto" maxWidth={'xl'} paddingY={4}>
           <Grid container spacing={3}>
             <Grid size={8}>
               <Box
