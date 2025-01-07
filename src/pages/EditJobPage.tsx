@@ -3,6 +3,11 @@ import Job from '../api/types/Job';
 import { FormEvent, useState } from 'react';
 import JobType from '../api/types/JobType';
 import { useShowNotification } from '../hooks/useShowNotification';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 type EditJobParams = { updateJobSubmit: (job: Job) => void };
 
@@ -62,183 +67,156 @@ function EditJobPage(params: EditJobParams) {
   };
 
   return (
-    <section className="bg-indigo-50">
-      <div className="container m-auto max-w-2xl py-24">
-        <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
-          <form onSubmit={submitForm}>
-            <h2 className="text-3xl text-center font-semibold mb-6">
-              Edit Job
-            </h2>
-            <div className="mb-4">
-              <label
-                htmlFor="type"
-                className="block text-gray-700 font-bold mb-2">
-                Job Type
-              </label>
-              <select
-                id="type"
-                name="type"
-                className="border rounded w-full py-2 px-3"
-                required
-                value={type}
-                onChange={(e) => setType(e.target.value as JobType)}>
-                <option value={JobType.FullTime}>Full-Time</option>
-                <option value={JobType.PartTime}>Part-Time</option>
-                <option value={JobType.Remote}>Remote</option>
-                <option value={JobType.Internship}>Internship</option>
-              </select>
-            </div>
+    <Box bgcolor={'secondary.light'} paddingY={6}>
+      <Box
+        bgcolor="common.white"
+        maxWidth="md"
+        marginX="auto"
+        borderRadius={2}
+        paddingX={3}
+        paddingY={4}>
+        <Box
+          component="form"
+          onSubmit={submitForm}
+          sx={{ '& .MuiTextField-root': { m: 1 } }}>
+          <Typography
+            variant="h4"
+            fontWeight={'bold'}
+            align="center"
+            marginBottom={2}>
+            Edit Job
+          </Typography>
 
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Job Listing Name
-              </label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                className="border rounded w-full py-2 px-3 mb-2"
-                placeholder="eg. Writes Code"
-                required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
+          <TextField
+            label="Job Type"
+            required
+            select
+            fullWidth
+            value={type}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setType(event.target.value as JobType);
+            }}>
+            <MenuItem value={JobType.FullTime}>Full-Time</MenuItem>
+            <MenuItem value={JobType.PartTime}>Part-Time</MenuItem>
+            <MenuItem value={JobType.Remote}>Remote</MenuItem>
+            <MenuItem value={JobType.Internship}>Internship</MenuItem>
+          </TextField>
 
-            <div className="mb-4">
-              <label
-                htmlFor="description"
-                className="block text-gray-700 font-bold mb-2">
-                Description
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                className="border rounded w-full py-2 px-3"
-                rows={4}
-                placeholder="Add any job duties, expectations, requirements, etc"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}></textarea>
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="type"
-                className="block text-gray-700 font-bold mb-2">
-                Salary
-              </label>
-              <select
-                id="salary"
-                name="salary"
-                className="border rounded w-full py-2 px-3"
-                required
-                value={salary}
-                onChange={(e) => setSalary(e.target.value)}>
-                <option value="Under $50K">Under $50K</option>
-                <option value="$50K - 60K">$50K - $60K</option>
-                <option value="$60K - 70K">$60K - $70K</option>
-                <option value="$70K - 80K">$70K - $80K</option>
-                <option value="$80K - 90K">$80K - $90K</option>
-                <option value="$90K - 100K">$90K - $100K</option>
-                <option value="$100K - 125K">$100K - $125K</option>
-                <option value="$125K - 150K">$125K - $150K</option>
-                <option value="$150K - 175K">$150K - $175K</option>
-                <option value="$175K - 200K">$175K - $200K</option>
-                <option value="Over $200K">Over $200K</option>
-              </select>
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Location
-              </label>
-              <input
-                type="text"
-                id="location"
-                name="location"
-                className="border rounded w-full py-2 px-3 mb-2"
-                placeholder="Company Location"
-                required
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
-            </div>
-            <h3 className="text-2xl mb-5">Company Info</h3>
-            <div className="mb-4">
-              <label
-                htmlFor="company"
-                className="block text-gray-700 font-bold mb-2">
-                Company Name
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                className="border rounded w-full py-2 px-3"
-                placeholder="Company Name"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="company_description"
-                className="block text-gray-700 font-bold mb-2">
-                Company Description
-              </label>
-              <textarea
-                id="company_description"
-                name="company_description"
-                className="border rounded w-full py-2 px-3"
-                rows={4}
-                placeholder="What does your company do?"
-                value={companyDescription}
-                onChange={(e) =>
-                  setCompanyDescription(e.target.value)
-                }></textarea>
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="contact_email"
-                className="block text-gray-700 font-bold mb-2">
-                Contact Email
-              </label>
-              <input
-                type="email"
-                id="contact_email"
-                name="contact_email"
-                className="border rounded w-full py-2 px-3"
-                placeholder="Email address for applicants"
-                required
-                value={contactEmail}
-                onChange={(e) => setContactEmail(e.target.value)}
-              />
-            </div>
-            <div className="mb-4">
-              <label
-                htmlFor="contact_phone"
-                className="block text-gray-700 font-bold mb-2">
-                Contact Phone
-              </label>
-              <input
-                type="tel"
-                id="contact_phone"
-                name="contact_phone"
-                className="border rounded w-full py-2 px-3"
-                placeholder="Optional phone for applicants"
-                value={contactPhone}
-                onChange={(e) => setContactPhone(e.target.value)}
-              />
-            </div>
-            <div>
-              <button
-                className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
-                type="submit">
-                Edit Job
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
+          <TextField
+            label="Job Listing Name"
+            required
+            fullWidth
+            value={title}
+            placeholder="eg. Writes Code"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setTitle(event.target.value);
+            }}
+          />
+
+          <TextField
+            label="Description"
+            fullWidth
+            value={description}
+            multiline
+            rows={4}
+            placeholder="Add any job duties, expectations, requirements, etc"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setDescription(event.target.value);
+            }}
+          />
+
+          <TextField
+            label="Salary"
+            required
+            select
+            fullWidth
+            value={salary}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setSalary(event.target.value as JobType);
+            }}>
+            <MenuItem value="Under $50K">Under $50K</MenuItem>
+            <MenuItem value="$50K - 60K">$50K - 60K</MenuItem>
+            <MenuItem value="$60K - 70K">$60K - 70K</MenuItem>
+            <MenuItem value="$70K - 80K">$70K - 80K</MenuItem>
+            <MenuItem value="$80K - 90K">$80K - 90K</MenuItem>
+            <MenuItem value="$90K - 100K">$90K - 100K</MenuItem>
+            <MenuItem value="$100K - 125K">$100K - 125K</MenuItem>
+            <MenuItem value="$125K - 150K">$125K - 150K</MenuItem>
+            <MenuItem value="$150K - 175K">$150K - 175K</MenuItem>
+            <MenuItem value="$175K - 200K">$175K - 200K</MenuItem>
+            <MenuItem value="Over $200K">Over $200K</MenuItem>
+          </TextField>
+
+          <TextField
+            label="Location"
+            required
+            fullWidth
+            value={location}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setLocation(event.target.value);
+            }}
+          />
+
+          <Typography variant="h5" margin={2}>
+            Company Info
+          </Typography>
+
+          <TextField
+            label="Company Name"
+            fullWidth
+            value={companyName}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setCompanyName(event.target.value);
+            }}
+          />
+
+          <TextField
+            label="Description"
+            fullWidth
+            value={companyDescription}
+            multiline
+            rows={4}
+            placeholder="What does your company do?"
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setCompanyDescription(event.target.value);
+            }}
+          />
+
+          <TextField
+            label="Contact Email"
+            fullWidth
+            required
+            type="email"
+            value={contactEmail}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setContactEmail(event.target.value);
+            }}
+          />
+
+          <TextField
+            label="Contact Phone"
+            fullWidth
+            value={contactPhone}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              setContactPhone(event.target.value);
+            }}
+          />
+
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{
+              borderRadius: 2,
+              fontWeight: 'bold',
+              padding: 1,
+              margin: 1,
+            }}>
+            Edit Job
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
