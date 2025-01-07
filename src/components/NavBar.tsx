@@ -1,29 +1,31 @@
 import logo from '../assets/images/logo.png';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Toolbar from '@mui/material/Toolbar';
-import Icon from '@mui/material/Icon';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { Link } from '@mui/material';
 
 function NavBar() {
   return (
     <AppBar position="static" color="secondary">
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box display="flex" alignItems="center" sx={{ flexGrow: 1 }}>
-            <Icon sx={{ height: '2.5rem', width: '2.5rem' }}>
-              <img src={logo} />
-            </Icon>
-            <Typography
+            <Box
+              component="img"
+              maxHeight="2.5rem"
+              src={logo}
+              marginRight={2}
+            />
+            <Link
               variant="h5"
               component="a"
               href="/"
               fontWeight="bold"
-              marginLeft={2}>
+              underline="none">
               React Jobs
-            </Typography>
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Button variant="contained" href="/" sx={{ marginRight: 2 }}>

@@ -101,25 +101,25 @@ function JobPage(params: JobPageParams) {
 
                 <Typography variant="h6">Contact Email:</Typography>
 
-                <Box
+                <Typography
                   fontWeight="bold"
                   padding={1}
                   marginY={1}
                   borderRadius={2}
                   bgcolor="secondary.light">
                   {job.company.contactEmail}
-                </Box>
+                </Typography>
 
                 <Typography variant="h6">Contact Phone:</Typography>
 
-                <Box
+                <Typography
                   fontWeight="bold"
                   padding={1}
                   marginY={1}
                   borderRadius={2}
                   bgcolor="secondary.light">
                   {job.company.contactPhone}
-                </Box>
+                </Typography>
               </Box>
 
               <Box
